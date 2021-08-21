@@ -1,6 +1,7 @@
 let secondMemoryTaken = false;
 let secondStorageTaken = false,thirdStorageTaken = false;
 let chargedDelivery = false;
+let promocodeApplied = false;
 
 //Functional Input
 
@@ -140,11 +141,15 @@ document.getElementById('second-delivery-button').addEventListener('click', func
 //Use Promo Code
 
 document.getElementById('promo-button').addEventListener('click', function(){
-    const promoInput = document.getElementById('promo-code');
-    let promoInputedText = promoInput.value;
-    if(promoInputedText == 'stevekaku'){
-        console.log('clicked');
+    if(promocodeApplied == false){
+        const promoInput = document.getElementById('promo-code');
+        let promoInputedText = promoInput.value;
+        if(promoInputedText == 'stevekaku'){
         applyPromoToTotal();
+        promocodeApplied = true;
+        promoInput.value = '';
+        }
     }
+    const promoInput = document.getElementById('promo-code');
     promoInput.value = '';
 })
